@@ -9,6 +9,9 @@ body {
     margin: 0;
     padding: 0;
 }
+.random{
+    color: var(--tg-color-scheme);
+}
 element {
     --tg-viewport-height: 100vh;
     --tg-viewport-stable-height: 100vh;

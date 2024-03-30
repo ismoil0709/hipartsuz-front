@@ -131,6 +131,9 @@ export default function () {
     }
     return (
         <div>
+            <div className='random'>
+                Salom
+            </div>
             <div className="mantine-Container-root mantine-15pjuqq">
                 <div id='mantine-1w6i6a8' className="mantine-1w6i6a8">
                     <div className="mantine-Container-root mantine-15pjuqq">
