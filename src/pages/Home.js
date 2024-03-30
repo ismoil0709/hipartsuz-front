@@ -118,7 +118,7 @@ export default function () {
 
                     categories.map((category => (
                         <div id={category.id} style={{ marginTop: '10px' }}>
-                            <div className="mantine-Grid-root mantine-9zohaa">
+                            <div className={`mantine-Grid-root mantine-9zohaa ${setTheme('mantine-9zohaa')}`}>
                                 {
                                     products.filter(product => product.category.id === category.id).map(product => (
                                         <div className="mantine-Grid-col mantine-fhjbsl">
