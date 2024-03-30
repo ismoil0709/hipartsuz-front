@@ -108,7 +108,13 @@ export default function () {
             }
         }
     ]
+    function serTheme(className){
+        if('dark' === 'dark'){
+            return className + '-dark';
+        }
+    }
     function setActive(id) {
+        document.addEventListener('relo')
         const activeCategory = document.querySelector('.active');
         if (activeCategory) {
             activeCategory.classList.remove('active');
@@ -122,12 +128,12 @@ export default function () {
     return (
         <div>
             <div className="mantine-Container-root mantine-15pjuqq">
-                <div id='mantine-1w6i6a8' className="mantine-1w6i6a8">
+                <div className="mantine-1w6i6a8">
                     <div className="mantine-Container-root mantine-15pjuqq">
                         <div className="mantine-115iyaz" id="nav-wrapp">
                             {
                                 categories.map((category => (
-                                    <a id={'category-' + category.id} onClick={() => setActive(category.id)} className='mantine-s9arro' >{category.name}</a>
+                                    <a id={'category-' + category.id} onClick={() => setActive(category.id)} className={`mantine-s9arro ${serTheme('mantine-s9arro')}`} >{category.name}</a>
                                 )))
                                 
                             }

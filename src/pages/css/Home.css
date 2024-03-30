@@ -29,9 +29,15 @@
 }
 .mantine-s9arro {
     text-decoration: none;
-    color: rgb(16, 17, 19);
+    /* color: rgb(16, 17, 19); */
     margin-right: 16px;
     cursor: pointer;
+}
+.mantine-s9arro-dark {
+    color: green;
+}
+.mantine-s9arro-light{
+    color: yellow;
 }
 .mantine-s9arro.active {
     background: rgb(253, 235, 4);
