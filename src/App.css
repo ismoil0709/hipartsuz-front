@@ -13,6 +13,3 @@ element {
     --tg-viewport-height: 100vh;
     --tg-viewport-stable-height: 100vh;
 }
-html {
-    color-scheme: var(--tg-color-scheme);
-}
