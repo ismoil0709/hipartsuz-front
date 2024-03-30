@@ -15,6 +15,9 @@
     overflow-y: auto;
     padding: 20px;
 }
+.mantine-adyf3h-dark{
+    background-color: #1a1b1e;
+}
 .mantine-121w2fi {
     display: flex;
     -moz-box-align: center;
@@ -127,12 +130,18 @@ img {
     line-height: 1.45;
     margin: 12px 0px 0px;
 }
+.mantine-1dv2r7k-dark{
+    color: white;
+}
 .mantine-1pbxw0k {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
     color: inherit;
     font-size: inherit;
     line-height: 1.55;
     text-decoration: none;
+}
+.mantine-1pbxw0k-dark{
+    color: white;
 }
 .mantine-1r5gzak {
     margin-top: 24px;
@@ -151,6 +160,9 @@ img {
     line-height: 1.5;
     margin: 0px;
 }
+.mantine-1s1l1dq-dark{
+    color: white;
+}
 .mantine-1523trd {
     width: 120px;
     display: flex;
@@ -158,9 +170,14 @@ img {
     align-items: center;
     -moz-box-pack: justify;
     justify-content: space-between;
-    background-color: rgb(241, 243, 245);
     border-radius: 16px;
     padding: 5px 10px;
+}
+.mantine-1523trd-dark{
+    background-color: #101113;
+}
+.mantine-1523trd-ligth{
+    background-color: rgb(241, 243, 245)
 }
 .mantine-13fglg0 {
     padding: 0px 8px;
@@ -183,13 +200,6 @@ img {
     background: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
 }
-.mantine-1pbxw0k {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-    color: inherit;
-    font-size: inherit;
-    line-height: 1.55;
-    text-decoration: none;
-}
 .mantine-3xbgk5 {
     display: flex;
     -moz-box-align: center;
@@ -208,35 +218,17 @@ img {
     cursor: pointer;
     color: rgb(0, 0, 0);
 }
-.mantine-13fglg0 {
-    text-align: left;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-    font-weight: 600;
-    line-height: 1;
-    font-size: 14px;
-    cursor: pointer;
-    color: rgb(0, 0, 0);
+.mantine-13fglg0-dark{
+    background-color : #25262b;
 }
 .mantine-qo1k2 {
     white-space: nowrap;
 }
-.mantine-13fglg0 {
-    text-align: left;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-    font-weight: 600;
-    line-height: 1;
-    font-size: 14px;
-    cursor: pointer;
-    color: rgb(0, 0, 0);
+.icon-dark{
+    color: white;
 }
-.mantine-13fglg0 {
-    text-align: left;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-    font-weight: 600;
-    line-height: 1;
-    font-size: 14px;
-    cursor: pointer;
-    color: rgb(0, 0, 0);
+.mantine-13fglg0:hover {
+    background-color: rgb(253, 235, 4);
 }
 .mantine-16132zt {
     position: fixed;
@@ -252,6 +244,9 @@ img {
     display: flex;
     -moz-box-align: center;
     align-items: center;
+}
+.mantine-16132zt-dark{
+    background-color: #101113;
 }
 .mantine-1y0ftcf {
     padding-left: 16px;
@@ -323,4 +318,7 @@ img {
     line-height: 1.55;
     text-decoration: line-through;
     font-weight: 600;
+}
+.mantine-ywpxau-dark{
+    color: white;
 }

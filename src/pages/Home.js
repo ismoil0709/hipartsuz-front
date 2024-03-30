@@ -39,6 +39,22 @@ export default function () {
         {
             id : '7',
             name : 'Other'
+        },
+        {
+            id : '8',
+            name : 'Other'
+        },
+        {
+            id : '9',
+            name : 'Other'
+        },
+        {
+            id : '10',
+            name : 'Other'
+        },
+        {
+            id : '11',
+            name : 'Other'
         }
 
     ]
@@ -74,25 +90,23 @@ export default function () {
             description : 'zo\'r',
             img_path: 'https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',
             category: {
-                id: '0',
-                name: 'New'
+                id: '1',
+                name: 'Other'
             }
         }
     ]
     function setTheme(className){
-        if(tg.colorScheme === 'dark'){
+        if('dark' === 'dark'){
             return className + '-dark';
         }else{
             return className + '-light';
         }
     }
     function setActive(id) {
-        document.addEventListener('relo')
         const activeCategory = document.querySelector('.active');
         if (activeCategory) {
             activeCategory.classList.remove('active');
         }
-
         const categoryElement = document.getElementById('category-' + id);
         if (categoryElement) {
             categoryElement.classList.add('active');
