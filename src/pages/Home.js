@@ -1,37 +1,8 @@
 import './css/Home.css'
 
+const tg = window.Telegram.WebApp;
+
 export default function () {
-
-    // document.addEventListener('DOMContentLoaded', () => {
-    //     if ('dark' === 'dark') {
-    //         let elements = document.querySelectorAll('.mantine-1w6i6a8');
-    //         for(let i = 0; i < elements.length; i++){
-    //             const element  = elements[i];
-    //             element.style.backgroundColor = 'rgba(37,38,43,255)';
-    //         }
-    //         elements = document.querySelectorAll('.mantine-9tuz4g');
-    //         for (let i = 0; i < elements.length; i++) {
-    //             const element = elements[i];
-    //             element.style.backgroundColor = 'rgba(37,38,43,255)'
-    //         }
-    //         elements = document.querySelectorAll('.mantine-s9arro');
-    //         for (let i = 0; i < elements.length; i++) {
-    //             const element = elements[i];
-    //             element.style.color = 'rgba(191,192,197,255)';
-    //         }
-    //         elements = document.querySelectorAll('.mantine-6qpjlo');
-    //         for (let i = 0; i < elements.length; i++) {
-    //             const element = elements[i];
-    //             element.style.color = 'rgba(191,192,197,255)'
-    //         }
-    //         elements = document.querySelectorAll('.mantine-qxe4dyy');
-    //         for (let i = 0; i < elements.length; i++) {
-    //             const element = elements[i];
-    //             element.style.color = 'rgba(191,192,197,255)'
-    //         }
-    //     }
-    // });
-
     const user_id = '1122332';
     let cart = {
         products : []
@@ -108,9 +79,11 @@ export default function () {
             }
         }
     ]
-    function serTheme(className){
-        if('dark' === 'dark'){
+    function setTheme(className){
+        if(tg.colorScheme === 'dark'){
             return className + '-dark';
+        }else{
+            return className + '-light';
         }
     }
     function setActive(id) {
@@ -128,12 +101,12 @@ export default function () {
     return (
         <div>
             <div className="mantine-Container-root mantine-15pjuqq">
-                <div className="mantine-1w6i6a8">
+                <div className={`mantine-1w6i6a8 ${setTheme('mantine-1w6i6a8')}`}>
                     <div className="mantine-Container-root mantine-15pjuqq">
                         <div className="mantine-115iyaz" id="nav-wrapp">
                             {
                                 categories.map((category => (
-                                    <a id={'category-' + category.id} onClick={() => setActive(category.id)} className={`mantine-s9arro ${serTheme('mantine-s9arro')}`} >{category.name}</a>
+                                    <a id={'category-' + category.id} onClick={() => setActive(category.id)} className={`mantine-s9arro ${setTheme('mantine-s9arro')}`} >{category.name}</a>
                                 )))
                                 
                             }
@@ -149,7 +122,7 @@ export default function () {
                                 {
                                     products.filter(product => product.category.id === category.id).map(product => (
                                         <div className="mantine-Grid-col mantine-fhjbsl">
-                                            <div onClick={() => { window.location.href = `/product?id=${product.id}` }} className="mantine-Paper-root mantine-Card-root mantine-9tuz4g" style={{ cursor: 'pointer' }}>
+                                            <div onClick={() => { window.location.href = `/product?id=${product.id}` }} className={`mantine-Paper-root mantine-Card-root mantine-9tuz4g ${setTheme('mantine-9tuz4g')}`} style={{ cursor: 'pointer' }}>
                                                 {(product.discount > 0 && 
                                                 <div class="mantine-Badge-root mantine-6h9eby">
                                                     <span class="mantine-h9iq4m mantine-Badge-inner">{product.discount}%
@@ -169,7 +142,7 @@ export default function () {
                                                     </div>
                                                 </div>
                                                 <div className="mantine-Group-root mantine-6qpjlo">
-                                                    <div className="mantine-Text-root mantine-152y8ed">{product.name}</div>
+                                                    <div className={`mantine-Text-root mantine-152y8ed ${setTheme('mantine-152y8ed')}`}>{product.name}</div>
                                                 </div>
                                                 {(product.description != undefined && 
                                                     <div class="mantine-Text-root mantine-rwoji2">{product.description.substring(0,13)}...</div>
@@ -178,7 +151,7 @@ export default function () {
                                                 {(product.discount > 0) && 
                                                 <div class="mantine-Text-root mantine-qxe4dx">{product.price} so'm</div>
                                                 }
-                                                <span className='mantine-qxe4dyy'>{product.discount > 0 ? product.price - (product.price * product.discount) / 100 : product.price} so'm</span><button
+                                                <span className={`mantine-qxe4dyy ${setTheme('mantine-qxe4dyy')}`}>{product.discount > 0 ? product.price - (product.price * product.discount) / 100 : product.price} so'm</span><button
                                                     className="mantine-UnstyledButton-root mantine-u169ik" type="button"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

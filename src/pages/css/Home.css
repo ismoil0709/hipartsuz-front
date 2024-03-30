@@ -10,10 +10,15 @@
     width: 100%;
     left: 0px;
     top: 0px;
-    background-color: rgb(241, 243, 245);
     padding-top: 16px;
     padding-bottom: 16px;
     z-index: 999;
+}
+.mantine-1w6i6a8-light{
+    background-color: rgb(241, 243, 245)
+}
+.mantine-1w6i6a8-dark{
+    
 }
 .mantine-15pjuqq {
     padding-left: 16px;
@@ -29,7 +34,6 @@
 }
 .mantine-s9arro {
     text-decoration: none;
-    /* color: rgb(16, 17, 19); */
     margin-right: 16px;
     cursor: pointer;
 }
@@ -37,7 +41,7 @@
     color: green;
 }
 .mantine-s9arro-light{
-    color: yellow;
+    color: rgb(16, 17, 19);
 }
 .mantine-s9arro.active {
     background: rgb(253, 235, 4);
@@ -99,9 +103,14 @@
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 3px, rgba(0, 0, 0, 0.1) 0px 1px 2px;
     position: relative;
     overflow: hidden;
-    background-color: rgb(255, 255, 255);
     height: 100%;
     padding: 20px;
+}
+.mantine-9tuz4g-light{
+    background-color: rgb(255, 255, 255)
+}
+.mantine-9tuz4g-dark{
+
 }
 .mantine-6h9eby {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
@@ -170,6 +179,9 @@ article, aside, footer, header, nav, section, figcaption, figure, main {
     margin-top: 16px;
     margin-bottom: 10px;
 }
+.mantine-152y8ed-dark{
+    color: white;
+}
 .mantine-rwoji2 {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
     color: rgb(134, 142, 150);
@@ -184,6 +196,9 @@ article, aside, footer, header, nav, section, figcaption, figure, main {
     color: rgb(134, 142, 150);
     font-size: 12px;
     margin-top: 12px;
+}
+.mantine-qxe4dyy-dark{
+    color: white;
 }
 .mantine-u169ik {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
