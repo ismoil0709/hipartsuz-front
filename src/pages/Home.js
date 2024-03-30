@@ -2,6 +2,36 @@ import './css/Home.css'
 
 export default function () {
 
+    document.addEventListener('DOMContentLoaded', () => {
+        if ('dark' === 'dark') {
+            let elements = document.querySelectorAll('.mantine-1w6i6a8');
+            for(let i = 0; i < elements.length; i++){
+                const element  = elements[i];
+                element.style.backgroundColor = 'rgba(37,38,43,255)';
+            }
+            elements = document.querySelectorAll('.mantine-9tuz4g');
+            for (let i = 0; i < elements.length; i++) {
+                const element = elements[i];
+                element.style.backgroundColor = 'rgba(37,38,43,255)'
+            }
+            elements = document.querySelectorAll('.mantine-s9arro');
+            for (let i = 0; i < elements.length; i++) {
+                const element = elements[i];
+                element.style.color = 'rgba(191,192,197,255)';
+            }
+            elements = document.querySelectorAll('.mantine-6qpjlo');
+            for (let i = 0; i < elements.length; i++) {
+                const element = elements[i];
+                element.style.color = 'rgba(191,192,197,255)'
+            }
+            elements = document.querySelectorAll('.mantine-qxe4dyy');
+            for (let i = 0; i < elements.length; i++) {
+                const element = elements[i];
+                element.style.color = 'rgba(191,192,197,255)'
+            }
+        }
+    });
+
     const user_id = '1122332';
     let cart = {
         products : []
