@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
 }
-element {
+html{
     --tg-viewport-height: 100vh;
     --tg-viewport-stable-height: 100vh;
 }
