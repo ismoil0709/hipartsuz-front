@@ -14,7 +14,7 @@ function App() {
   })
   document.addEventListener('DOMContentLoaded', () => {
     let theme = tg.colorScheme;
-    if (theme === 'dark') {
+    if ('dark' === 'dark') {
         let elements = document.querySelectorAll('.mantine-1w6i6a8');
         for(let i = 0; i < elements.length; i++){
             const element  = elements[i];
