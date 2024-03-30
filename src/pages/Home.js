@@ -3,38 +3,6 @@ import './css/Home.css'
 export default function () {
 
     const user_id = '1122332';
-    document.addEventListener('DOMContentLoaded', () => {
-        let path = window.location.href
-        let theme = document.getElementsByTagName('html')[0].getAttribute('color-theme');
-        if (theme === 'dark') {
-            let elements = document.querySelectorAll('.mantine-1w6i6a8');
-            for(let i = 0; i < elements.length; i++){
-                const element  = elements[i];
-                element.style.backgroundColor = 'rgba(37,38,43,255)';
-            }
-            elements = document.querySelectorAll('.mantine-9tuz4g');
-            for (let i = 0; i < elements.length; i++) {
-                const element = elements[i];
-                element.style.backgroundColor = 'rgba(37,38,43,255)'
-            }
-            elements = document.querySelectorAll('.mantine-s9arro');
-            for (let i = 0; i < elements.length; i++) {
-                const element = elements[i];
-                element.style.color = 'rgba(191,192,197,255)';
-            }
-            elements = document.querySelectorAll('.mantine-6qpjlo');
-            for (let i = 0; i < elements.length; i++) {
-                const element = elements[i];
-                element.style.color = 'rgba(191,192,197,255)'
-            }
-            elements = document.querySelectorAll('.mantine-qxe4dyy');
-            for (let i = 0; i < elements.length; i++) {
-                const element = elements[i];
-                element.style.color = 'rgba(191,192,197,255)'
-            }
-        }
-    });
-
     let cart = {
         products : []
     }
@@ -106,27 +74,11 @@ export default function () {
         const activeCategory = document.querySelector('.active');
         if (activeCategory) {
             activeCategory.classList.remove('active');
-            const elements = document.querySelectorAll('.mantine-s9arro');
-            for (let i = 0; i < elements.length; i++) {
-                const element = elements[i];
-                element.classList.forEach(c=>{
-                    element.style.color = 'rgba(191,192,197,255)';
-                })
-            }
         }
 
         const categoryElement = document.getElementById('category-' + id);
         if (categoryElement) {
             categoryElement.classList.add('active');
-            const elements = document.querySelectorAll('.mantine-s9arro');
-            for (let i = 0; i < elements.length; i++) {
-                const element = elements[i];
-                element.classList.forEach(c=>{
-                    if(c === 'active'){
-                        element.style.color = 'rgb(16, 17, 19)';
-                    }
-                })
-            }
         }
     }
     return (
@@ -141,9 +93,6 @@ export default function () {
                                 )))
                                 
                             }
-                            <div className='random' style={{color : 'var(--tg-color-scheme)'}}>
-                                    Salom
-                                </div>
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
     width: 100%;
     left: 0px;
     top: 0px;
-    background-color: rgb(241, 243, 245);
+    background-color: var(--tg-theme-header-bg-color);
     padding-top: 16px;
     padding-bottom: 16px;
     z-index: 999;
@@ -29,7 +29,7 @@
 }
 .mantine-s9arro {
     text-decoration: none;
-    color: rgb(16, 17, 19);
+    color: var(--tg-theme-text-color);
     margin-right: 16px;
     cursor: pointer;
 }
@@ -37,7 +37,7 @@
     background: rgb(253, 235, 4);
     border-radius: 100px;
     padding: 5px 10px;
-    color: rgb(16, 17, 19);
+    color: var(--tg-theme-hint-color);
 }
 a:active, a:hover {
     outline-width: 0px;
@@ -93,13 +93,13 @@ a {
     outline: 0px;
     display: block;
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: var(--tg-theme-text-color);
     box-sizing: border-box;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 3px, rgba(0, 0, 0, 0.1) 0px 1px 2px;
     position: relative;
     overflow: hidden;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--tg-theme-bg-color);
     height: 100%;
     padding: 20px;
 }
@@ -125,7 +125,7 @@ a {
     text-overflow: ellipsis;
     overflow: hidden;
     background: rgb(64, 192, 87);
-    color: rgb(255, 255, 255);
+    color: rgb(255, 255, 25);
     border: 1px solid transparent;
     position: absolute;
     min-height: 28px;
@@ -162,9 +162,6 @@ a {
     -moz-box-pack: center;
     justify-content: center;
     padding-top: 15px;
-}
-.mantine-9tuz4g {
-    color: rgb(0, 0, 0);
 }
 .mantine-11nhzn5 {
     margin: 0px;
