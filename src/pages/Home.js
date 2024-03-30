@@ -141,7 +141,7 @@ export default function () {
                                 )))
                                 
                             }
-                            <div className='random'>
+                            <div className='random' style={{color : 'var(--tg-color-scheme)'}}>
                                     Salom
                                 </div>
                         </div>
