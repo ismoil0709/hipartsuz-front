@@ -5,13 +5,9 @@ import ShowProduct from './pages/ShowProduct';
 import Cart from './pages/Cart'
 import { useState } from 'react';
 
-const tg = window.Telegram.WebApp;
+// const tg = window.Telegram.WebApp;
 
 function App() {
-
-  useState(()=>{
-    tg.ready();
-  })
   return (
     <div>
       <Router>
