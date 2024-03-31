@@ -96,7 +96,7 @@ export default function () {
         }
     ]
     function setTheme(className){
-        if('dark' === 'dark'){
+        if(tg.colorScheme === 'dark'){
             return className + '-dark';
         }else{
             return className + '-light';

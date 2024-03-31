@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './css/ShowProduct.css'
 
+const tg = window.Telegram.WebApp;
+
 export default function () {
 
     const [product_count,setProduct_count] =  useState(1);
@@ -19,7 +21,7 @@ export default function () {
         }
     }
     function setTheme(className){
-        if('dark' === 'dark'){
+        if(tg.colorScheme === 'dark'){
             return className + '-dark';
         }else{
             return className + '-light';
