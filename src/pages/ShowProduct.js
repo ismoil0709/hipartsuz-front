@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './css/ShowProduct.css'
+import setTheme from '../util/setTheme';
 
 const tg = window.Telegram.WebApp;
 
@@ -18,13 +19,6 @@ export default function () {
         category: {
             id: '0',
             name: 'New'
-        }
-    }
-    function setTheme(className){
-        if(tg.colorScheme === 'dark'){
-            return className + '-dark';
-        }else{
-            return className + '-light';
         }
     }
     function modifyCount(value){

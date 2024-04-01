@@ -1,6 +1,5 @@
 import './css/Home.css'
-
-const tg = window.Telegram.WebApp;
+import setTheme from '../util/setTheme';
 
 export default function () {
     const user_id = '1122332';
@@ -95,13 +94,6 @@ export default function () {
             }
         }
     ]
-    function setTheme(className){
-        if(tg.colorScheme === 'dark'){
-            return className + '-dark';
-        }else{
-            return className + '-light';
-        }
-    }
     function setActive(id) {
         const activeCategory = document.querySelector('.active');
         if (activeCategory) {
@@ -111,7 +103,8 @@ export default function () {
         if (categoryElement) {
             categoryElement.classList.add('active');
         }
-    }
+        document.getElementById('c-'+id).scrollIntoView({behavior : 'smooth', block : 'start'});
+    }    
     return (
         <div>
             <div className="mantine-Container-root mantine-15pjuqq">
@@ -131,7 +124,7 @@ export default function () {
                 {
 
                     categories.map((category => (
-                        <div id={category.id} style={{ marginTop: '10px' }}>
+                        <div id={`c-${category.id}`} style={{ marginTop: '10px' }}>
                             <div className={`mantine-Grid-root mantine-9zohaa ${setTheme('mantine-9zohaa')}`}>
                                 {
                                     products.filter(product => product.category.id === category.id).map(product => (
