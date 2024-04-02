@@ -172,6 +172,18 @@ export default function () {
         }
         return acc;
     }, []);
+    function getCountOfProducts() {
+        if (window.localStorage.getItem('cart') !== undefined) {
+            const products = JSON.parse(window.localStorage.getItem('cart')).products;
+            const uniqueProductIds = new Set();
+            for (let i = 0; i < products.length; i++) {
+                uniqueProductIds.add(products[i].id);
+            }
+            return uniqueProductIds.size;
+        } else {
+            return 0;
+        }
+    }    
     return (
         <div >
             <div className="mantine-Container-root mantine-15pjuqq">
@@ -252,8 +264,8 @@ export default function () {
                         <path d="M17 17h-11v-14h-2"></path>
                         <path d="M6 5l14 1l-1 7h-13"></path>
                     </svg>
-                    {JSON.parse(localStorage.getItem('cart') === null ? {} : localStorage.getItem('cart')).products.length >0 && (
-                        <div className="mantine-11i0awo" >{JSON.parse(localStorage.getItem('cart') === null ? {} : localStorage.getItem('cart')).products.length}</div>
+                    {getCountOfProducts() >0 && (
+                        <div className="mantine-11i0awo" >{getCountOfProducts()}</div>
                     )}
                     </div>
                 </div>
