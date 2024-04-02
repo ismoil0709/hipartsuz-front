@@ -9,6 +9,9 @@ export default function () {
     const [product_count,setProduct_count] =  useState(1);
 
     const product_id = window.location.href.substring(window.location.href.indexOf('id') + 3);
+    
+    //request for product.findById()
+
     const product = {
         id: 0,
         price: 100,
@@ -25,6 +28,17 @@ export default function () {
         if(value >= 1){
             setProduct_count(value);
         }
+    }
+    function addToCart(){
+        const products = [];
+        for (let i = 0; i < product_count; i++) {   
+            products.push(product);             
+        }
+        localStorage.setItem('cart',JSON.stringify({
+            'id' : 1,
+            'products' : products
+        }))
+        window.location.href = '/';
     }
     return (
         <div className={`mantine-Paper-root mantine-Modal-modal mantine-adyf3h ${setTheme('mantine-adyf3h')}`}
@@ -109,6 +123,7 @@ export default function () {
                         </div>
                             )}
                         <button
+                        onClick={addToCart}
                         className="mantine-UnstyledButton-root mantine-Button-root mantine-s9rjrk"
                         type="button" data-button="true">
                         <div className="mantine-3xbgk5 mantine-Button-inner"><span

@@ -2,23 +2,25 @@ import { useState } from 'react';
 import './css/Cart.css';
 
 export default function () {
-    const cart = {
-        id: '1',
-        products: [{
-            id: 0,
-            price: 100,
-            description: 'description',
-            name: 'Pizza',
-            img_path: 'https://media.istockphoto.com/id/938742222/photo/cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=D1z4xPCs-qQIZyUqRcHrnsJSJy_YbUD9udOrXpilNpI=',
-            discount: '10',
-            count: '11',
-            category: {
-                id: '0',
-                name: 'New'
-            }
-        }]
-    }
+    // const cart = {
+    //     id: '1',
+    //     products: [{
+    //         id: 0,
+    //         price: 100,
+    //         description: 'description',
+    //         name: 'Pizza',
+    //         img_path: 'https://media.istockphoto.com/id/938742222/photo/cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=D1z4xPCs-qQIZyUqRcHrnsJSJy_YbUD9udOrXpilNpI=',
+    //         discount: '10',
+    //         count: '11',
+    //         category: {
+    //             id: '0',
+    //             name: 'New'
+    //         }
+    //     }]
+    // }
 
+    const cart = JSON.parse(window.localStorage.getItem('cart'));
+    console.log(cart.products);
     return (
         <div className="mantine-Container-root mantine-15pjuqq">
             <div className="mantine-1tckvsj" >
@@ -39,7 +41,7 @@ export default function () {
                 <div className="mantine-3zgt8p"></div>
             </div>
             <div className="mantine-1hnnj0w">
-                {(cart.length === 0 && <div>
+                {(cart.products.length === 0 && <div>
                     <div className="mantine-1kaq23z"><img src="https://apex-tg-site.lavina.tech/static/media/pitsapart.d7047adf9bd1a887cbd4.png"
                         height="250" />
                         <h1 className="mantine-Text-root mantine-Title-root mantine-1l71p2l">Пока нет товаров</h1>

@@ -2,7 +2,7 @@
 const tg = window.Telegram.WebApp;
 
 export default function setTheme(className){
-    if(tg.colorScheme === 'dark'){
+    if('dark' === 'dark'){
         return className + '-dark';
     }else{
         return className + '-light';

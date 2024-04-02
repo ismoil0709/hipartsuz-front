@@ -6,61 +6,6 @@ import scrollSpy from 'simple-scrollspy';
 export default function () {
     let [activeCategory, setActiveCategory] = useState('0'); // Initialize active category state
     const user_id = '1122332';
-    let cart = {
-        products : []
-    }
-    let categories = [
-        {
-            id: '0',
-            name: 'New',
-        },
-        {
-            id: '1',
-            name: 'Pasta',
-        },
-        {
-            id: '2',
-            name: 'Combo',
-        },
-        {
-            id: '3',
-            name: 'Pizza',
-        },
-        {
-            id: '4',
-            name: 'Snacks',
-        },
-        {
-            id: '5',
-            name: 'Dessert',
-        },
-        {
-            id : '6',
-            name : 'Bar'
-        },
-        {
-            id : '7',
-            name : 'Other'
-        },
-        {
-            id : '8',
-            name : 'Other'
-        },
-        {
-            id : '9',
-            name : 'Other'
-        },
-        {
-            id : '10',
-            name : 'Other'
-        },
-        {
-            id : '11',
-            name : 'Other'
-        }
-
-    ]
-    
     let products = [
         {
             id: 0,
@@ -69,7 +14,7 @@ export default function () {
             img_path: 'https://media.istockphoto.com/id/938742222/photo/cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=D1z4xPCs-qQIZyUqRcHrnsJSJy_YbUD9udOrXpilNpI=',
             discount : '0',
             category: {
-                id: '0',
+                id: '-1',
                 name: 'New'
             }
         },
@@ -81,7 +26,7 @@ export default function () {
             discount : '1',
             category: {
                 id: '0',
-                name: 'New'
+                name: 'Pizza'
             }
         },
         {
@@ -201,25 +146,32 @@ export default function () {
                 sectionClass: '.product-section',
                 menuActiveTarget: '.mantine-s9arro',
                 offset: 100,
-                // scrollContainer: null,
+                // scrollContainer: '.mantine-115iyaz',
                 // smooth scroll
                 smoothScroll: true,
                 smoothScrollBehavior: function(element) {
-                  console.log('run "smoothScrollBehavior"...', element)
                   element.scrollIntoView({ behavior: 'smooth' })
                 },
                 onActive: (el) => {
-                  console.log('run "onActive"...', el)
+                    el.scrollIntoView({behavior : 'smooth'})
                 }
               });
         }
-        console.log('again');
         onload();
         return () => {
 
         };
     },[]);
-      
+    products.sort(function(a,b){
+        return a.category.id - b.category.id
+    })
+    console.log(products);
+    let categories = products.reduce((acc, product) => {
+        if (!acc.find((category) => category.id === product.category.id)) {
+            acc.push(product.category);
+        }
+        return acc;
+    }, []);
     return (
         <div >
             <div className="mantine-Container-root mantine-15pjuqq">
@@ -300,8 +252,8 @@ export default function () {
                         <path d="M17 17h-11v-14h-2"></path>
                         <path d="M6 5l14 1l-1 7h-13"></path>
                     </svg>
-                    {cart.products.length >0 && (
-                        <div className="mantine-11i0awo" >{cart.products.length}</div>
+                    {JSON.parse(localStorage.getItem('cart')).products.length >0 && (
+                        <div className="mantine-11i0awo" >{JSON.parse(localStorage.getItem('cart')).products.length}</div>
                     )}
                     </div>
                 </div>
