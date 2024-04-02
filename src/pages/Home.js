@@ -173,8 +173,9 @@ export default function () {
         return acc;
     }, []);
     function getCountOfProducts() {
-        if (window.localStorage.getItem('cart') !== undefined || window.localStorage.getItem('cart') !== null) {
-            const products = JSON.parse(window.localStorage.getItem('cart')).products;
+        const cartData = window.localStorage.getItem('cart');
+        if (cartData) {
+            const products = JSON.parse(cartData).products;
             const uniqueProductIds = new Set();
             for (let i = 0; i < products.length; i++) {
                 uniqueProductIds.add(products[i].id);
