@@ -21,7 +21,8 @@ export default function () {
 
     return (
         <div className="mantine-Container-root mantine-15pjuqq">
-            <div className="mantine-1tckvsj">
+            <div className="mantine-1tckvsj" >
+                {/* theme */}
                 <div className="mantine-Container-root mantine-15pjuqq" style={{ width: '100%' }}>
                     <h3 className="mantine-Text-root mantine-Title-root mantine-1hrejo7"><button
                         className="mantine-UnstyledButton-root mantine-Button-root mantine-olvkvg" type="button"
@@ -29,7 +30,7 @@ export default function () {
                         <div className="mantine-3xbgk5 mantine-Button-inner"><span
                             className="mantine-qo1k2 mantine-Button-label"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                                 className="tabler-icon tabler-icon-chevron-left">
                                 <path d="M15 6l-6 6l6 6"></path>
                             </svg></span></div>
@@ -61,33 +62,33 @@ export default function () {
                                     <div className="mantine-Image-root mantine-15po0m8" style={{ width: "80px;" }}>
                                         <figure className="mantine-11nhzn5 mantine-Image-figure">
                                             <div className="mantine-qqmv3w mantine-Image-imageWrapper">
-                                                <img className="mantine-3y8yz3 mantine-Image-image" src={prodcut.img} style={{ objectFit: 'cover', width: '80px', height: 'auto' }} />
+                                                <img className="mantine-3y8yz3 mantine-Image-image" src={prodcut.img_path} style={{ objectFit: 'cover', width: '80px', height: 'auto' }} />
                                             </div>
                                         </figure>
                                     </div>
                                     <div className="mantine-1phcad1">
-                                        <h5 className="mantine-Text-root mantine-Title-root mantine-1s1l1dq">ApexLava</h5>
+                                        <h5 className="mantine-Text-root mantine-Title-root mantine-1s1l1dq">{prodcut.name}</h5>
                                         <span className="mantine-1ib17aw"></span>
                                     </div>
                                 </div>
                                 <div className="mantine-3zyj2n">
-                                    <span>20000 сум</span>
+                                    <span>{prodcut.price} so'm</span>
                                     <div className="mantine-1r5gzak">
                                         <div className="mantine-1523trd">
                                             <button className="mantine-UnstyledButton-root mantine-Button-root mantine-13fglg0" type="button" data-button="true">
                                                 <div className="mantine-3xbgk5 mantine-Button-inner">
                                                     <span className="mantine-qo1k2 mantine-Button-label">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="tabler-icon tabler-icon-minus">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="tabler-icon tabler-icon-minus">
                                                             <path d="M5 12l14 0"></path>
                                                         </svg>
                                                     </span>
                                                 </div>
                                             </button>
-                                            <div className="mantine-Text-root mantine-1pbxw0k"></div>
+                                            <div className="mantine-Text-root mantine-1pbxw0k">{prodcut.count}</div>
                                             <button className="mantine-UnstyledButton-root mantine-Button-root mantine-13fglg0" type="button" data-button="true">
                                                 <div className="mantine-3xbgk5 mantine-Button-inner">
                                                     <span className="mantine-qo1k2 mantine-Button-label">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="tabler-icon tabler-icon-plus">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="tabler-icon tabler-icon-plus">
                                                             <path d="M12 5l0 14"></path><path d="M5 12l14 0"></path>
                                                         </svg>
                                                     </span>

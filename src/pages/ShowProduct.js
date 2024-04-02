@@ -103,9 +103,9 @@ export default function () {
                 <div className={`mantine-16132zt ${setTheme('mantine-16132zt')}`}>
                     <div className="mantine-Container-root mantine-1y0ftcf">
                         {(product.discount > 0 && 
-                        <div class="mantine-1o499t4">
-                            <div class="mantine-Text-root mantine-1dxpbjr">Discount {product.discount}%</div>
-                            <div class={`mantine-Text-root mantine-ywpxau ${setTheme('mantine-ywpxau')}`}>{product.price} so'm</div>
+                        <div className="mantine-1o499t4">
+                            <div className="mantine-Text-root mantine-1dxpbjr">Discount {product.discount}%</div>
+                            <div className={`mantine-Text-root mantine-ywpxau ${setTheme('mantine-ywpxau')}`}>{product.price} so'm</div>
                         </div>
                             )}
                         <button
