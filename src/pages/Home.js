@@ -252,8 +252,8 @@ export default function () {
                         <path d="M17 17h-11v-14h-2"></path>
                         <path d="M6 5l14 1l-1 7h-13"></path>
                     </svg>
-                    {JSON.parse(localStorage.getItem('cart')).products.length >0 && (
-                        <div className="mantine-11i0awo" >{JSON.parse(localStorage.getItem('cart')).products.length}</div>
+                    {JSON.parse(localStorage.getItem('cart') === undefined ? {} : localStorage.getItem('cart')).products.length >0 && (
+                        <div className="mantine-11i0awo" >{JSON.parse(localStorage.getItem('cart') === undefined ? {} : localStorage.getItem('cart')).products.length}</div>
                     )}
                     </div>
                 </div>
