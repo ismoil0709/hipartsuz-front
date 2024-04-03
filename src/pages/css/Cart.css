@@ -60,6 +60,9 @@
     color: rgb(0, 0, 0);
     border-radius: 12px;
 }
+.mantine-olvkvg:hover {
+    background-color: rgb(253, 235, 4);
+}
 .mantine-3xbgk5 {
     display: flex;
     -moz-box-align: center;
@@ -205,4 +208,54 @@ article, aside, footer, header, nav, section, figcaption, figure, main {
     align-items: center;
     -moz-box-pack: justify;
     justify-content: space-between;
+}
+.mantine-1s1l1dq {
+    color: inherit;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0px;
+}
+.mantine-1phcad1 {
+    margin-left: 12px;
+}
+.mantine-1tckvsj-dark{
+    background-color: #101113;
+}
+.mantine-1hrejo7-dark{
+    color: white;
+}
+.mantine-1hrejo7-dark{
+    /* background: #1a1b1e; */
+    color: white;
+}
+.mantine-olvkvg-dark,.mantine-13fglg0-dark{
+    background: #1a1b1e;;
+    color: white;
+}
+.mantine-olvkvg-dark:hover,.mantine-13fglg0-dark:hover{
+    color: rgb(0, 0, 0);
+}
+.mantine-3zgt8p-dark{
+    background-color: #1a1b1e;
+}
+.mantine-1l71p2l-dark{
+    color: white;
+}
+.mantine-60chd3-dark{
+    color: white;
+}
+.mantine-aqummf-dark{
+    background-color: #1a1b1e;
+}
+.mantine-1s1l1dq-dark{
+    color: white;
+}
+.product-price-dark{
+    color: white;
+}
+.mantine-1pbxw0k-dark{
+    color: white;
 }

@@ -4,8 +4,6 @@ import setTheme from '../util/setTheme';
 import scrollSpy from 'simple-scrollspy';
 
 export default function () {
-    let [activeCategory, setActiveCategory] = useState('0'); // Initialize active category state
-    const user_id = '1122332';
     let products = [
         {
             id: 0,
@@ -146,8 +144,6 @@ export default function () {
                 sectionClass: '.product-section',
                 menuActiveTarget: '.mantine-s9arro',
                 offset: 100,
-                // scrollContainer: '.mantine-115iyaz',
-                // smooth scroll
                 smoothScroll: true,
                 smoothScrollBehavior: function(element) {
                   element.scrollIntoView({ behavior: 'smooth' })
@@ -256,7 +252,7 @@ export default function () {
                         </div>
                     )))
                 }
-                <div onClick={()=>window.location.href='/cart?user_id=' + user_id} className="mantine-1nt18gn">
+                <div onClick={()=>window.location.href='/cart'} className="mantine-1nt18gn">
                     <div className="mantine-n3zmiq"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
                         strokeLinejoin="round" className="tabler-icon tabler-icon-shopping-cart">

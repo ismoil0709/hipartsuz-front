@@ -237,9 +237,7 @@ img {
     min-height: 80px;
     width: 100%;
     background-color: rgb(255, 255, 255);
-    border-top: 1px solid rgb(241, 243, 245);
-      border-top-color: rgb(241, 243, 245);
-    border-color: rgb(241, 243, 245);
+    border-radius: 10px;
     padding: 5px;
     display: flex;
     -moz-box-align: center;

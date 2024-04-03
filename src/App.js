@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import ShowProduct from './pages/ShowProduct';
 import Cart from './pages/Cart'
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 const tg = window.Telegram.WebApp;
 
 function App() {

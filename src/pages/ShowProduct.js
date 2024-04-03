@@ -31,11 +31,16 @@ export default function () {
     }
     function addToCart(){
         const products = [];
-        for (let i = 0; i < product_count; i++) {   
-            products.push(product);             
-        }
+        const price = product.discount > 0 ? product.price - (product.price * product.discount) / 100 : product.price;
+            products.push({
+                id : product.id,
+                name : product.name,
+                img_path : product.img_path,
+                price : price,
+                count : product_count,
+                total : product_count * price
+            });             
         localStorage.setItem('cart',JSON.stringify({
-            'id' : 1,
             'products' : products
         }))
         window.location.href = '/';
