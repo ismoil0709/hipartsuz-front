@@ -68,7 +68,7 @@ export default function () {
     }
 
     return (
-        <div className="mantine-Container-root mantine-15pjuqq">
+        <div className={`mantine-Container-root mantine-15pjuqq ${setTheme('mantine-15pjuqq')}`}>
             <div className={`mantine-1tckvsj ${setTheme('mantine-1tckvsj')}`} >
                 <div className="mantine-Container-root mantine-15pjuqq" style={{ width: '100%' }}>
                     <h3 className={`mantine-Text-root mantine-Title-root mantine-1hrejo7 ${setTheme('mantine-1hrejo7')}`}><button
@@ -147,7 +147,7 @@ export default function () {
                                     </div>
                                 </div>
                             ))}
-                            <div className="mantine-16132zt">
+                            <div className={`mantine-16132zt ${setTheme('mantine-16132zt')}`}>
                                 <div className="mantine-Container-root mantine-1y0ftcf">
                                     <button className="mantine-UnstyledButton-root mantine-Button-root mantine-s9rjrk" type="button" data-button="true">
                                         <div className="mantine-3xbgk5 mantine-Button-inner">
