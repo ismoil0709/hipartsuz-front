@@ -2,166 +2,46 @@ import './css/Home.css'
 import React, { useState, useEffect } from 'react';
 import setTheme from '../util/setTheme';
 import scrollSpy from 'simple-scrollspy';
+import axios from 'axios';
 
 export default function () {
-    let products = [
-        {
-            id: 0,
-            price: 14000,
-            name: 'Pizza',
-            img_path: 'https://media.istockphoto.com/id/938742222/photo/cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=D1z4xPCs-qQIZyUqRcHrnsJSJy_YbUD9udOrXpilNpI=',
-            discount : '0',
-            category: {
-                id: '-1',
-                name: 'New'
-            }
-        },
-        {
-            id: 1,
-            price: 35000,
-            name: 'Burger',
-            img_path: 'https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',
-            discount : '1',
-            category: {
-                id: '0',
-                name: 'Pizza'
-            }
-        },
-        {
-            id: 9,
-            price: 1000,
-            discount : '50',
-            name: 'Burger',
-            description : 'zo\'r',
-            img_path: 'https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',
-            category: {
-                id: '1',
-                name: 'Other'
-            }
-        },
-        {
-            id: 8,
-            price: 1000,
-            discount : '50',
-            name: 'Burger',
-            description : 'zo\'r',
-            img_path: 'https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',
-            category: {
-                id: '2',
-                name: 'Other'
-            }
-        },
-        {
-            id: 7,
-            price: 1000,
-            discount : '50',
-            name: 'Burger',
-            description : 'zo\'r',
-            img_path: 'https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',
-            category: {
-                id: '3',
-                name: 'Other'
-            }
-        },
-        {
-            id: 6,
-            price: 1000,
-            discount : '50',
-            name: 'Burger',
-            description : 'zo\'r',
-            img_path: 'https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',
-            category: {
-                id: '4',
-                name: 'Other'
-            }
-        },
-        {
-            id: 5,
-            price: 1000,
-            discount : '50',
-            name: 'Burger',
-            description : 'zo\'r',
-            img_path: 'https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',
-            category: {
-                id: '5',
-                name: 'Other'
-            }
-        },
-        {
-            id: 5,
-            price: 1000,
-            discount : '50',
-            name: 'Burger',
-            description : 'zo\'r',
-            img_path: 'https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',
-            category: {
-                id: '6',
-                name: 'Other'
-            }
-        },
-        {
-            id: 5,
-            price: 1000,
-            discount : '50',
-            name: 'Burger',
-            description : 'zo\'r',
-            img_path: 'https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',
-            category: {
-                id: '7',
-                name: 'Other'
-            }
-        },
-        {
-            id: 5,
-            price: 1000,
-            discount : '50',
-            name: 'Burger',
-            description : 'zo\'r',
-            img_path: 'https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',
-            category: {
-                id: '8',
-                name: 'Other'
-            }
-        },
-        {
-            id: 5,
-            price: 1000,
-            discount : '50',
-            name: 'Burger',
-            description : 'zo\'r',
-            img_path: 'https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',
-            category: {
-                id: '9',
-                name: 'Other'
-            }
-        }
-    ]
 
+    const [products,setProducts] = useState([]);    
     useEffect(()=>{
-        console.log('hello');
-        const onload = () => {
-            scrollSpy('#nav-wrapp', {
-                sectionClass: '.product-section',
-                menuActiveTarget: '.mantine-s9arro',
-                offset: 100,
-                smoothScroll: true,
-                smoothScrollBehavior: function(element) {
-                  element.scrollIntoView({ behavior: 'smooth' })
-                },
-                onActive: (el) => {
-                    el.scrollIntoView({behavior : 'smooth'})
+        setProducts([
+            {
+                id : 0,
+                name : 'salom',
+                price : 10000,
+                category : {
+                    id : 0,
+                    name : 'salom'
                 }
-              });
-        }
-        onload();
-        return () => {
-
-        };
-    },[]);
+            }
+        ])
+        // const onload = async () => {
+        //     await axios.get('http://localhost:8080/api/v1/product/all').then((resp) => {
+        //         setProducts(resp.data);
+        //     }
+        //     );
+        // }
+        // onload();
+        scrollSpy('#nav-wrapp', {
+            sectionClass: '.product-section',
+            menuActiveTarget: '.mantine-s9arro',
+            offset: 100,
+            smoothScroll: true,
+            smoothScrollBehavior: function(element) {
+              element.scrollIntoView({ behavior: 'smooth' })
+            },
+            onActive: (el) => {
+                el.scrollIntoView({behavior : 'smooth'})
+            }
+          });
+    },[products]);
     products.sort(function(a,b){
         return a.category.id - b.category.id
     })
-    console.log(products);
     let categories = products.reduce((acc, product) => {
         if (!acc.find((category) => category.id === product.category.id)) {
             acc.push(product.category);
@@ -220,7 +100,7 @@ export default function () {
                                                         <figure className="mantine-11nhzn5 mantine-Image-figure">
                                                             <div className="mantine-qqmv3w mantine-Image-imageWrapper"><img
                                                                 className="mantine-3y8yz3 mantine-Image-image"
-                                                                src={product.img_path}
+                                                                src={product.imgPath}
                                                                 style={{ objectFit: 'cover', width: '120px', height: '120px' }}
                                                                 loading="lazy" alt="img" />
                                                             </div>

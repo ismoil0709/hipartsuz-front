@@ -110,7 +110,7 @@ export default function () {
                                         <div className="mantine-Image-root mantine-15po0m8" style={{ width: "80px" }}>
                                             <figure className="mantine-11nhzn5 mantine-Image-figure">
                                                 <div className="mantine-qqmv3w mantine-Image-imageWrapper">
-                                                    <img className="mantine-3y8yz3 mantine-Image-image" src={product.img_path} style={{ objectFit: 'cover', width: '80px', height: 'auto' }} />
+                                                    <img className="mantine-3y8yz3 mantine-Image-image" src={product.imgPath} style={{ objectFit: 'cover', width: '80px', height: 'auto' }} />
                                                 </div>
                                             </figure>
                                         </div>
@@ -149,7 +149,7 @@ export default function () {
                             ))}
                             <div className={`mantine-16132zt ${setTheme('mantine-16132zt')}`}>
                                 <div className="mantine-Container-root mantine-1y0ftcf">
-                                    <button className="mantine-UnstyledButton-root mantine-Button-root mantine-s9rjrk" type="button" data-button="true">
+                                    <button onClick={()=>window.location.href='/checkout'} className="mantine-UnstyledButton-root mantine-Button-root mantine-s9rjrk" type="button" data-button="true">
                                         <div className="mantine-3xbgk5 mantine-Button-inner">
                                             <span className="mantine-qo1k2 mantine-Button-label">ORDER FOR {totalPrice} so'm</span>
                                         </div>

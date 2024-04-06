@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ShowProduct from './pages/ShowProduct';
 import Cart from './pages/Cart'
 import { useEffect} from 'react';
+import Order from './pages/Order';
 const tg = window.Telegram.WebApp;
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route exact path='/' element={<Home />}></Route>
           <Route exact path='/product' element={<ShowProduct />}></Route>
           <Route exact path='/cart' element={<Cart/>}></Route>
+          <Route exact path='/checkout' element={<Order />}></Route>
         </Routes>
       </Router>
     </div>

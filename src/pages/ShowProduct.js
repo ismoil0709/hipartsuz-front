@@ -1,41 +1,48 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './css/ShowProduct.css'
 import setTheme from '../util/setTheme';
+import axios from 'axios';
 
 const tg = window.Telegram.WebApp;
 
 export default function () {
-
     const [product_count,setProduct_count] =  useState(1);
-
-    const product_id = window.location.href.substring(window.location.href.indexOf('id') + 3);
+    const [product,setProduct] = useState({});
     
-    //request for product.findById()
-
-    const product = {
-        id: 0,
-        price: 100,
-        description : 'description',
-        name: 'Pizza',
-        img_path: 'https://media.istockphoto.com/id/938742222/photo/cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=D1z4xPCs-qQIZyUqRcHrnsJSJy_YbUD9udOrXpilNpI=',
-        discount : '10',
-        category: {
-            id: '0',
-            name: 'New'
-        }
-    }
+    useEffect(()=>{
+        const product_id = window.location.href.substring(window.location.href.indexOf('id') + 3);
+        // axios.get(`http://localhost:8080/api/v1/product/ ${product_id}`).then((resp)=>{
+        //     console.log(resp);
+        //     setProduct(resp.data);
+        // });
+        setProduct(
+            {
+                id : 0,
+                name : 'salom',
+                price : 10000,
+                category : {
+                    id : 0,
+                    name : 'salom'
+                }
+            }
+        )
+    },[]);
     function modifyCount(value){
         if(value >= 1){
             setProduct_count(value);
         }
     }
     function addToCart(){
-        const products = [];
+        let products = [];
+        if(localStorage.getItem('cart')){
+            products = JSON.parse(localStorage.getItem('cart')).products;
+            console.log(products);
+        }
         const price = product.discount > 0 ? product.price - (product.price * product.discount) / 100 : product.price;
             products.push({
                 id : product.id,
                 name : product.name,
-                img_path : product.img_path,
+                imgPath : product.imgPath,
                 price : price,
                 count : product_count,
                 total : product_count * price
@@ -74,7 +81,7 @@ export default function () {
                         <figure className="mantine-11nhzn5 mantine-Image-figure">
                             <div className="mantine-qqmv3w mantine-Image-imageWrapper"><img
                                 className="mantine-3y8yz3 mantine-Image-image"
-                                src={product.img_path}
+                                src={product.imgPath}
                                 style={{
                                     objectFit: 'cover',
                                     width: '100%',
