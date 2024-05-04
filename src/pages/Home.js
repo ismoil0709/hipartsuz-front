@@ -3,29 +3,25 @@ import React, { useState, useEffect } from 'react';
 import setTheme from '../util/setTheme';
 import scrollSpy from 'simple-scrollspy';
 import axios from 'axios';
+import Utils from '../util/BASE_URL';
+import BASE_URL from '../util/BASE_URL';
 
 export default function () {
 
     const [products,setProducts] = useState([]);    
     useEffect(()=>{
-        setProducts([
-            {
-                id : 0,
-                name : 'salom',
-                price : 10000,
-                category : {
-                    id : 0,
-                    name : 'salom'
-                }
+        const onload =  async () => {
+            console.log(Utils);
+             await axios.get(`${BASE_URL}/product/get/all`).then((resp) => {
+                setProducts(resp.data);
             }
-        ])
-        // const onload = async () => {
-        //     await axios.get('http://localhost:8080/api/v1/product/all').then((resp) => {
-        //         setProducts(resp.data);
-        //     }
-        //     );
-        // }
-        // onload();
+            );
+        }
+        onload();
+    },[]);
+
+    useEffect(()=>{
+    
         scrollSpy('#nav-wrapp', {
             sectionClass: '.product-section',
             menuActiveTarget: '.mantine-s9arro',
@@ -39,7 +35,9 @@ export default function () {
             }
           });
     },[products]);
+
     products.sort(function(a,b){
+        console.log(products);
         return a.category.id - b.category.id
     })
     let categories = products.reduce((acc, product) => {

@@ -12,6 +12,7 @@ export default function () {
         if (cart?.products) {
             let products = [];
             products = cart.products;
+            console.log(products);
             const initialTotalPrice = cart.products.reduce((acc, product) => acc + product.price * product.count, 0);
             setProductsList(products);
             setTotalPrice(initialTotalPrice);

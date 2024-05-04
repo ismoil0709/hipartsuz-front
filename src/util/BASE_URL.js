@@ -1,0 +1,1 @@
+export default "http://3.79.151.7:8080/api/v1";
