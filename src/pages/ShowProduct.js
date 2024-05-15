@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './css/ShowProduct.css'
 import setTheme from '../util/setTheme';
 import axios from 'axios';
-import BASE_URL from '../util/BASE_URL';
+import BASE_URL from '../util/getBaseUrl';
 
 const tg = window.Telegram.WebApp;
 
@@ -12,9 +12,21 @@ export default function () {
 
     useEffect(() => {
         const product_id = window.location.href.substring(window.location.href.indexOf('id') + 3);
-        axios.get(`${BASE_URL}/product/get/ ${product_id}`).then((resp) => {
-            console.log(resp);
-            setProduct(resp.data);
+        // axios.get(`${BASE_URL}/product/get/ ${product_id}`).then((resp) => {
+        //     console.log(resp);
+        //     setProduct(resp.data);
+        // });
+        setProduct({
+            'id' : 3,
+            'name' : 'Pizza',
+            'description' : 'Description',
+            'price' : 10000,
+            'imgPath' : 'https://picsum.photos/200/300?grayscale',
+            'category' : {
+                'id' : 3,
+                'name' : 'New'
+            },
+            'discount' : '10'
         });
     }, []);
     function modifyCount(value) {
