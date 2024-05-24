@@ -51,7 +51,6 @@ export default function Order() {
         const products = JSON.parse(window.localStorage.getItem('cart')).products;
         console.log(products);
         products.forEach(product => {
-            totalPrice += product.price;
             productIds.push(product.id);
         });
         products.forEach(product => {
