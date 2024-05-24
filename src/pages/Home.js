@@ -10,52 +10,52 @@ export default function () {
     const [products,setProducts] = useState([]);    
     useEffect(()=>{
         const onload =  async () => {
-            setProducts(
-                [
-                    {
-                        'id' : 1,
-                        'name' : 'Pizza',
-                        'description' : 'Description',
-                        'price' : 10000,
-                        'imgPath' : 'https://picsum.photos/200/300?grayscale',
-                        'category' : {
-                            'id' : 1,
-                            'name' : 'New'
-                        },
-                        'discount' : '10'
-                    },
-                    {
-                        'id' : 2,
-                        'name' : 'Pizza',
-                        'description' : 'Description',
-                        'price' : 10000,
-                        'imgPath' : 'https://picsum.photos/200/300?grayscale',
-                        'category' : {
-                            'id' : 2,
-                            'name' : 'New'
-                        },
-                        'discount' : '10'
-                    },
-                    {
-                        'id' : 3,
-                        'name' : 'Pizza',
-                        'description' : 'Description',
-                        'price' : 10000,
-                        'imgPath' : 'https://picsum.photos/200/300?grayscale',
-                        'category' : {
-                            'id' : 3,
-                            'name' : 'New'
-                        },
-                        'discount' : '10'
-                    }
-                ]
-            );
-            // const url = await getBaseUrl();
-            //  await axios.get(`${url}/product/get/all`).then((resp) => {
-            //     console.log(resp);
-            //     setProducts(resp.data);
-            // }
+            // setProducts(
+            //     [
+            //         {
+            //             'id' : 1,
+            //             'name' : 'Pizza',
+            //             'description' : 'Description',
+            //             'price' : 10000,
+            //             'imgPath' : 'https://picsum.photos/200/300?grayscale',
+            //             'category' : {
+            //                 'id' : 1,
+            //                 'name' : 'New'
+            //             },
+            //             'discount' : '10'
+            //         },
+            //         {
+            //             'id' : 2,
+            //             'name' : 'Pizza',
+            //             'description' : 'Description',
+            //             'price' : 10000,
+            //             'imgPath' : 'https://picsum.photos/200/300?grayscale',
+            //             'category' : {
+            //                 'id' : 2,
+            //                 'name' : 'New'
+            //             },
+            //             'discount' : '10'
+            //         },
+            //         {
+            //             'id' : 3,
+            //             'name' : 'Pizza',
+            //             'description' : 'Description',
+            //             'price' : 10000,
+            //             'imgPath' : 'https://picsum.photos/200/300?grayscale',
+            //             'category' : {
+            //                 'id' : 3,
+            //                 'name' : 'New'
+            //             },
+            //             'discount' : '10'
+            //         }
+            //     ]
             // );
+        
+             await axios.get(`${getBaseUrl()}/product/get/all`).then((resp) => {
+                console.log(resp);
+                setProducts(resp.data);
+            }
+            );
         }
         onload();
     },[]);
