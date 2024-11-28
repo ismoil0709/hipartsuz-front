@@ -1,3 +1,3 @@
 export default function getBaseUrl () {
-    return "https://autoexpo2024.uz/api/v1";
+    return "https://hipartsbot.uz/api/v1";
 };
