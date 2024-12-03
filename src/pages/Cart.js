@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 import './css/Cart.css';
 import setTheme from '../util/setTheme';
+import {useTranslation} from "react-i18next";
+import {useLocation} from "react-router-dom";
 
 export default function () {
+    const loc = useLocation();
     const [products, setProducts] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [length,setLength] = useState(0);
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
         const cart = JSON.parse(window.localStorage.getItem('cart'));
@@ -74,7 +78,7 @@ export default function () {
                 <div className="mantine-Container-root mantine-15pjuqq" style={{ width: '100%' }}>
                     <h3 className={`mantine-Text-root mantine-Title-root mantine-1hrejo7 ${setTheme('mantine-1hrejo7')}`}><button
                         className={`mantine-UnstyledButton-root mantine-Button-root mantine-olvkvg ${setTheme('mantine-olvkvg')}`} type="button"
-                        onClick={()=>window.location.href='/'}
+                        onClick={()=>window.location.href='/?lan=' + new URLSearchParams(loc.search).get("lan")}
                         data-button="true">
                         <div className="mantine-3xbgk5 mantine-Button-inner"><span
                             className="mantine-qo1k2 mantine-Button-label"><svg xmlns="http://www.w3.org/2000/svg"
@@ -83,18 +87,18 @@ export default function () {
                                 className="tabler-icon tabler-icon-chevron-left">
                                 <path d="M15 6l-6 6l6 6"></path>
                             </svg></span></div>
-                    </button>Basket</h3>
+                    </button>
+                        {t('basket')}</h3>
                 </div>
                 <div className={`mantine-3zgt8p ${setTheme('mantine-3zgt8p')}`}></div>
             </div>
             <div className="mantine-1hnnj0w">
                 {(length === 0 && <div>
-                    <div className="mantine-1kaq23z"><img src="https://apex-tg-site.lavina.tech/static/media/pitsapart.d7047adf9bd1a887cbd4.png"
+                        <div className="mantine-1kaq23z"><img src=" "
                         height="250" />
-                        <h1 className={`mantine-Text-root mantine-Title-root mantine-1l71p2l ${setTheme('mantine-1l71p2l')}`}>No products yet</h1>
-                            <div className={`mantine-Text-root mantine-60chd3 ${setTheme('mantine-60chd3')}`}>Your cart is empty, open "Menu" and select
-                             liked product.</div><button
-                                onClick={() => { window.location.href = '/' }}
+                        <h1 className={`mantine-Text-root mantine-Title-root mantine-1l71p2l ${setTheme('mantine-1l71p2l')}`}>{t('no_product')}</h1>
+                            <div className={`mantine-Text-root mantine-60chd3 ${setTheme('mantine-60chd3')}`}>{t('cart_empty')}</div><button
+                                onClick={() => { window.location.href = '/?lan=' + new URLSearchParams(loc.search).get("lan")}}
                                 className="mantine-UnstyledButton-root mantine-Button-root mantine-8exz2f" type="button"
                                 data-button="true">
                             <div className="mantine-3xbgk5 mantine-Button-inner"><span
@@ -121,7 +125,7 @@ export default function () {
                                         </div>
                                     </div>
                                     <div className="mantine-3zyj2n">
-                                        <span className={`product-price ${setTheme('product-price')}`}>{product.total} so'm</span>
+                                        <span className={`product-price ${setTheme('product-price')}`}>{product.total} {t('currency')}</span>
                                         <div className="mantine-1r5gzak">
                                             <div className="mantine-1523trd">
                                                 <button onClick={() => { handleDecrement(product.id) }} className={`mantine-UnstyledButton-root mantine-Button-root mantine-13fglg0 ${setTheme('mantine-13fglg0')}`} type="button" data-button="true">
@@ -150,9 +154,9 @@ export default function () {
                             ))}
                             <div className={`mantine-16132zt ${setTheme('mantine-16132zt')}`}>
                                 <div className="mantine-Container-root mantine-1y0ftcf">
-                                    <button onClick={()=>window.location.href='/checkout'} className="mantine-UnstyledButton-root mantine-Button-root mantine-s9rjrk" type="button" data-button="true">
+                                    <button onClick={()=>window.location.href='/checkout?lan=' + new URLSearchParams(loc.search).get("lan")} className="mantine-UnstyledButton-root mantine-Button-root mantine-s9rjrk" type="button" data-button="true">
                                         <div className="mantine-3xbgk5 mantine-Button-inner">
-                                            <span className="mantine-qo1k2 mantine-Button-label">ORDER FOR {totalPrice} so'm</span>
+                                            <span className="mantine-qo1k2 mantine-Button-label">{t('order')} {totalPrice} {t('currency')}</span>
                                         </div>
                                     </button>
                                 </div>

@@ -4,52 +4,59 @@ import setTheme from '../util/setTheme';
 import scrollSpy from 'simple-scrollspy';
 import axios from 'axios';
 import getBaseUrl from "../util/getBaseUrl";
+import {useLocation} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 export default function () {
 
-    const [products,setProducts] = useState([]);    
+    const loc = useLocation();
+    const { t, i18n } = useTranslation();
+
+
+    const [products,setProducts] = useState([]);
     useEffect(()=>{
+
         const onload =  async () => {
-            // setProducts(
-            //     [
-            //         {
-            //             'id' : 1,
-            //             'name' : 'Pizza',
-            //             'description' : 'Description',
-            //             'price' : 10000,
-            //             'imgPath' : 'https://picsum.photos/200/300?grayscale',
-            //             'category' : {
-            //                 'id' : 1,
-            //                 'name' : 'New'
-            //             },
-            //             'discount' : '10'
-            //         },
-            //         {
-            //             'id' : 2,
-            //             'name' : 'Pizza',
-            //             'description' : 'Description',
-            //             'price' : 10000,
-            //             'imgPath' : 'https://picsum.photos/200/300?grayscale',
-            //             'category' : {
-            //                 'id' : 2,
-            //                 'name' : 'New'
-            //             },
-            //             'discount' : '10'
-            //         },
-            //         {
-            //             'id' : 3,
-            //             'name' : 'Pizza',
-            //             'description' : 'Description',
-            //             'price' : 10000,
-            //             'imgPath' : 'https://picsum.photos/200/300?grayscale',
-            //             'category' : {
-            //                 'id' : 3,
-            //                 'name' : 'New'
-            //             },
-            //             'discount' : '10'
-            //         }
-            //     ]
-            // );
+    //         setProducts(
+    //             [
+    //                 {
+    //                     'id' : 1,
+    //                     'name' : 'Pizza',
+    //                     'description' : 'Description',
+    //                     'price' : 10000,
+    //                     'imgPath' : 'https://picsum.photos/200/300?grayscale',
+    //                     'category' : {
+    //                         'id' : 1,
+    //                         'name' : 'New'
+    //                     },
+    //                     'discount' : '10'
+    //                 },
+    //                 {
+    //                     'id' : 2,
+    //                     'name' : 'Pizza',
+    //                     'description' : 'Description',
+    //                     'price' : 10000,
+    //                     'imgPath' : 'https://picsum.photos/200/300?grayscale',
+    //                     'category' : {
+    //                         'id' : 2,
+    //                         'name' : 'New'
+    //                     },
+    //                     'discount' : '10'
+    //                 },
+    //                 {
+    //                     'id' : 3,
+    //                     'name' : 'Pizza',
+    //                     'description' : 'Description',
+    //                     'price' : 10000,
+    //                     'imgPath' : 'https://picsum.photos/200/300?grayscale',
+    //                     'category' : {
+    //                         'id' : 3,
+    //                         'name' : 'New'
+    //                     },
+    //                     'discount' : '10'
+    //                 }
+    //             ]
+    //         );
         
              await axios.get(`${getBaseUrl()}/product/get/all`).then((resp) => {
                 console.log(resp);
@@ -125,7 +132,7 @@ export default function () {
                                 {
                                     products.filter(product => product.category.id === category.id).map(product => (
                                         <div className="mantine-Grid-col mantine-fhjbsl">
-                                            <div onClick={() => { window.location.href = `/product?id=${product.id}` }} className={`mantine-Paper-root mantine-Card-root mantine-9tuz4g ${setTheme('mantine-9tuz4g')}`} style={{ cursor: 'pointer' }}>
+                                            <div onClick={() => { window.location.href = `/product?id=${product.id}&lan=${new URLSearchParams(loc.search).get("lan")}` }} className={`mantine-Paper-root mantine-Card-root mantine-9tuz4g ${setTheme('mantine-9tuz4g')}`} style={{ cursor: 'pointer' }}>
                                                  {(product.discount > 0 && 
                                                 <div className="mantine-Badge-root mantine-6h9eby">
                                                     <span className="mantine-h9iq4m mantine-Badge-inner">{product.discount}%
@@ -152,9 +159,9 @@ export default function () {
                                                     )}
                                                 <div className="mantine-Text-root mantine-rwoji2"></div>
                                                 {(product.discount > 0) && 
-                                                <div className="mantine-Text-root mantine-qxe4dx">{product.price} so'm</div>
+                                                <div className="mantine-Text-root mantine-qxe4dx">{product.price} {t('currency')}</div>
                                                 }
-                                                <span className={`mantine-qxe4dyy ${setTheme('mantine-qxe4dyy')}`}>{product.discount > 0 ? product.price - (product.price * product.discount) / 100 : product.price} so'm</span><button
+                                                <span className={`mantine-qxe4dyy ${setTheme('mantine-qxe4dyy')}`}>{product.discount > 0 ? product.price - (product.price * product.discount) / 100 : product.price} {t('currency')}</span><button
                                                     className="mantine-UnstyledButton-root mantine-u169ik" type="button"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                                         fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
@@ -169,7 +176,7 @@ export default function () {
                         </div>
                     )))
                 }
-                <div onClick={()=>window.location.href='/cart'} className="mantine-1nt18gn">
+                <div onClick={()=>window.location.href='/cart?lan=' + new URLSearchParams(loc.search).get("lan")} className="mantine-1nt18gn">
                     <div className="mantine-n3zmiq"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
                         strokeLinejoin="round" className="tabler-icon tabler-icon-shopping-cart">

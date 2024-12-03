@@ -4,16 +4,22 @@ import setTheme from '../util/setTheme';
 import axios from 'axios';
 import BASE_URL from '../util/getBaseUrl';
 import getBaseUrl from '../util/getBaseUrl';
+import {useTranslation} from "react-i18next";
+import {useLocation} from "react-router-dom";
 
 const tg = window.Telegram.WebApp;
 
 export default function () {
+
+    const loc = useLocation();
+    const { t, i18n } = useTranslation();
+
     const [product_count, setProduct_count] = useState(1);
     const [product, setProduct] = useState({});
 
     useEffect(() => {
         const product_id = window.location.href.substring(window.location.href.indexOf('id') + 3);
-        axios.get(`${getBaseUrl()}/product/get/ ${product_id}`).then((resp) => {
+        axios.get(`${getBaseUrl()}/product/get/${product_id}`).then((resp) => {
             console.log(resp);
             setProduct(resp.data);
         });
@@ -64,7 +70,7 @@ export default function () {
             'products': products
         }));
     
-        window.location.href = '/';
+        window.location.href = '/?lan=' + new URLSearchParams(loc.search).get("lan");
             return isNewProduct;
     }
     
@@ -80,7 +86,7 @@ export default function () {
             tabIndex="-1">
             <div className="mantine-121w2fi mantine-Modal-header"  >
                 <div className="mantine-Text-root mantine-Modal-title mantine-cx9mud" id="mantine-r1-title"></div><button
-                    onClick={() => { window.location.href = '/' }}
+                    onClick={() => { window.location.href = '/?lan=' + new URLSearchParams(loc.search).get("lan") }}
                     className="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-Modal-close mantine-1dcetaa"
                     type="button"><svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="16"
                         height="16">
@@ -110,7 +116,7 @@ export default function () {
                 <h4 className={`mantine-Text-root mantine-Title-root mantine-1dv2r7k ${setTheme('mantine-1dv2r7k')}`}>{product.name}</h4>
                 <div className={`mantine-Text-root mantine-1pbxw0k ${setTheme('mantine-1pbxw0k')}`}>{product.description === undefined ? product.name : product.description}</div>
                 <div className="mantine-1r5gzak">
-                    <h5 className={`mantine-Text-root mantine-Title-root mantine-1s1l1dq ${setTheme('mantine-1s1l1dq')}`}>Quantity:</h5>
+                    <h5 className={`mantine-Text-root mantine-Title-root mantine-1s1l1dq ${setTheme('mantine-1s1l1dq')}`}>{t('quantity')}</h5>
                     <div className={`mantine-1523trd ${setTheme('mantine-1523trd')}`}><button
                         onClick={() => modifyCount(product_count - 1)}
                         className={`mantine-UnstyledButton-root mantine-Button-root mantine-13fglg0 ${setTheme('mantine-13fglg0')}`}
@@ -146,8 +152,8 @@ export default function () {
                     <div className="mantine-Container-root mantine-1y0ftcf">
                         {(product.discount > 0 &&
                             <div className="mantine-1o499t4">
-                                <div className="mantine-Text-root mantine-1dxpbjr">Discount {product.discount}%</div>
-                                <div className={`mantine-Text-root mantine-ywpxau ${setTheme('mantine-ywpxau')}`}>{product.price} so'm</div>
+                                <div className="mantine-Text-root mantine-1dxpbjr">{t('discount')} {product.discount}%</div>
+                                <div className={`mantine-Text-root mantine-ywpxau ${setTheme('mantine-ywpxau')}`}>{product.price} {t('currency')}</div>
                             </div>
                         )}
                         <button
@@ -155,7 +161,7 @@ export default function () {
                             className="mantine-UnstyledButton-root mantine-Button-root mantine-s9rjrk"
                             type="button" data-button="true">
                             <div className="mantine-3xbgk5 mantine-Button-inner"><span
-                                className="mantine-qo1k2 mantine-Button-label">ADD TO CART FOR {product.discount > 0 ? (product.price - ((product.price * product.discount) / 100)) * product_count : product.price * product_count} so'm</span></div>
+                                className="mantine-qo1k2 mantine-Button-label">{t('add_to_cart')} {product.discount > 0 ? (product.price - ((product.price * product.discount) / 100)) * product_count : product.price * product_count} {t('currency')}</span></div>
                         </button></div>
                 </div>
                 <div className="mantine-1avyp1d" style={{ height: '80px' }}></div>
