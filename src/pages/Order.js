@@ -50,14 +50,10 @@ export default function Order() {
     function sendOrder(){
         let comment = document.getElementById('mantine-r1').value;
         console.log(comment);
-        let productIds = [];
         let productQuantities = [];
 
         const products = JSON.parse(window.localStorage.getItem('cart')).products;
         console.log(products);
-        products.forEach(product => {
-            productIds.push(product.id);
-        });
         products.forEach(product => {
             productQuantities.push({
                 'productId' : product.id,
@@ -66,15 +62,16 @@ export default function Order() {
         });
         const orderDto = {
             'userId'  : user_id,
-            'productIds' : productIds,
             'paymentType' : paymentType,
             'time' : formatDate(new Date()),
             'totalPrice' : totalPrice,
             'comment' : comment,
             'productQuantities' : productQuantities
         };
-        console.log(getBaseUrl());
-        axios.post(`${getBaseUrl()}/order/create`,orderDto);
+        axios.post(`${getBaseUrl()}/order/create`, orderDto)
+            .then(response => {
+                console.log("Order created successfully:", response.data);
+            });
         tg.close();
     }
     function formatDate(date) {
@@ -136,7 +133,7 @@ export default function Order() {
                 <div className={`mantine-1v9lolw ${setTheme('mantine-1v9lolw')}`}></div>
                 <div className={`mantine-16132zt ${setTheme('mantine-16132zt')}`}>
                     <div className="mantine-Container-root mantine-1y0ftcf">
-                        <button onClick={sendOrder} className="mantine-UnstyledButton-root mantine-Button-root mantine-s9rjrk" data-button="true">
+                        <button onClick={()=>{sendOrder()}} className="mantine-UnstyledButton-root mantine-Button-root mantine-s9rjrk" data-button="true">
                             <div className="mantine-3xbgk5 mantine-Button-inner">
                                 <span className="mantine-qo1k2 mantine-Button-label">{`${t('order')} ${totalPrice} ${t('currency')}`}</span>
                             </div>

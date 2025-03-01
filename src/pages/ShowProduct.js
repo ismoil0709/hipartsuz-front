@@ -18,7 +18,8 @@ export default function () {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
-        const product_id = window.location.href.substring(window.location.href.indexOf('id') + 3);
+        const product_id =
+            new URLSearchParams(loc.search).get('id');
         axios.get(`${getBaseUrl()}/product/get/${product_id}`).then((resp) => {
             console.log(resp);
             setProduct(resp.data);
