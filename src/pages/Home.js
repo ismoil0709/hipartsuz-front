@@ -68,7 +68,6 @@ export default function () {
     },[]);
 
     useEffect(()=>{
-    
         scrollSpy('#nav-wrapp', {
             sectionClass: '.product-section',
             menuActiveTarget: '.mantine-s9arro',

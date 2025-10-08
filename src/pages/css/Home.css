@@ -28,8 +28,10 @@
     margin-right: auto;
 }
 .mantine-115iyaz {
-    overflow: auto;
-    padding: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding: 5px 5px 20px 5px;
     scroll-behavior: smooth;
 }
 .mantine-s9arro {
