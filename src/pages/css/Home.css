@@ -30,6 +30,7 @@
 .mantine-115iyaz {
     display: flex;
     flex-wrap: nowrap;
+    align-items: center;
     overflow-x: scroll;
     padding: 5px 5px 20px 5px;
     scroll-behavior: smooth;
@@ -38,6 +39,7 @@
     text-decoration: none;
     margin-right: 16px;
     cursor: pointer;
+    flex: none;
 }
 .mantine-s9arro-dark {
     color: #aaabb1;
